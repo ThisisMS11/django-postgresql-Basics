@@ -50,6 +50,7 @@ psql -U fullstackcourse
 \c postgres to connect to other databases here 'postgres'
 \g to run the previous command again.
 \dt to get all tables.
+
 SELECT version to know about postgresql version
 ```
 
@@ -60,6 +61,13 @@ SELECT version to know about postgresql version
 CREATE DATABASE database_name 
 or
 CREATE DATABASE database_name WITH OWNER user_name
+```
+
+<div style="color:red; margin-bottom:4px" > Always use a semicolon  to send a command. </div>
+
+* CHANGING PASSWORD OF A USER IN POSTGRESQL SHELL
+```
+ALTER USER fullstackcourse WITH PASSWORD 'fullstackcourse'
 ```
 
 
@@ -117,5 +125,36 @@ CONSTRAINT fk_owner FOREIGN KEY (owner_id) REFERENCES owner(id): This section ad
 
 * REFERENCES owner(id): This indicates that the foreign key references the id column of a table named owner.
 
+
+### commands for postgresql configure
+```
+1. sudo systemctl status postgresql (to check status)
+2. sudo systemctl start postgresql (to start postgresql server)
+3. sudo systemctl stop postgresql  (to stop)
+```
+* for opening postgresq.conf
+```
+sudo vim /etc/postgresql/14/main/postgresql.conf
+```
+
+* for open pg_hba.conf
+```
+sudo vim /etc/postgresql/14/main/pg_hba.conf
+```
+
+
+## MIGRATIONS 
+Migrations in Django are a way to manage changes to your database schema over time. They are automatic scripts that help you create, update, or delete database tables and fields, ensuring your database structure matches your code. Migrations help you avoid manual database adjustments, making it easier to track and apply changes as your app evolves.
+
+
+Intially you do have some unapplied migrations that come along with your django setup but it's always a good practice to make the migrations first and then apply them for that you can follow the commands : 
+```
+python manage.py makemigrations
+
+python manage.py migrate
+```
+> the above commands will create the django tables in the database that is configured in the default database settings.
+
+![](./images/migrateTables.png)
 
 continue from 25.00 ....
