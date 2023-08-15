@@ -41,6 +41,8 @@ python manage.py runserver (to run server)
 > sometimes your code editor may not be able to connect your django files to your system file so it is always a good practice to select interpreter by pressing F1 and selecting corresponding interpreter.
 
 ## Setup PostgreSQL Database Adapter
+It provides an interface for connecting to PostgreSQL databases, executing SQL queries, and managing data.
+It provides a level of abstraction that converts your python code in sql commands so that you yourself don't have to do that on your own .
 ```
 pip install psycopg2
 ```
@@ -60,6 +62,10 @@ DATABASES = {
 ```
 
 ## Setting up Django Rest framework
+
+Django is a complete solution to do a lot of stuff like creating web apis, providing services, full web apps etc. 
+But for dealing with pure apis , we can use this framework for easyness rather than writing in pure django framework.It is specifcally dedicated to use django for creating web Apis.
+
 ```
 https://www.django-rest-framework.org/#installation
 ```
@@ -77,4 +83,59 @@ INSTALLED_APPS = [
 ]
 ```
 
+> Inside URLs.py
+```
 
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("auth/", include("rest_framework.urls")),
+]
+```
+* go to http://localhost:auth/login to see the login form.
+
+
+## Create a Super User
+In Django, a superuser is a user account with special privileges that allow them to access and manage the Django admin interface, which is a web-based tool for managing the application's data and settings. Superusers have the highest level of access and control within the Django project.
+
+Tasks of a Super user :
+
+1. Accessing the Admin Interface.
+2. Managing Models.
+3. Managing Users and groups.
+4. Customizing Site Settings.
+5. Running Management Commands.
+
+```
+python manage.py createsuperuser
+```
+
+
+
+## Django Applications
+Applications are a way we add modularity to our codebase that is managing logic of sepearate fields seperately like we used to create products.js in route folders in express to handle all the routes related to products, it is similar to that only.
+
+```
+django-admin startapp products (products here is application name)
+```
+
+Now django itself do not understand what products is so we need to configure our settings.py to tell django about products.
+```
+INSTALLED_APPS = [
+    ...,
+    "products.apps.ProductsConfig",
+]
+```
+
+
+
+## Maintaining database maintenances
+1. Create a folder name db-backups
+
+2. dump your postgresql data into that db_backups folder using the following command :
+```
+pg_dump -F t fullstackcourse > db-backups/fullstackcourse-1.tar
+```
+
+## Creating Data Models
+
+In Django, a data model refers to a Python class that defines the structure and behavior of a database table. Data models in Django are used to define the schema of the database, including the fields and relationships that the table will have. These models act as a bridge between the database and the Python code, allowing you to interact with the database using high-level Python objects.

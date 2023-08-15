@@ -157,4 +157,6 @@ python manage.py migrate
 
 ![](./images/migrateTables.png)
 
+
+
 continue from 25.00 ....
