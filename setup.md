@@ -59,7 +59,22 @@ DATABASES = {
 }
 ```
 
+## Setting up Django Rest framework
+```
+https://www.django-rest-framework.org/#installation
+```
+> don't forget to add rest_framework thing in Installed_apps in settings.py
 
-
+```
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    'rest_framework',
+]
+```
 
 
