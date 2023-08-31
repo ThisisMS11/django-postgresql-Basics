@@ -134,6 +134,20 @@ INSTALLED_APPS = [
 ]
 ```
 
+## MIGRATIONS 
+Migrations in Django are a way to manage changes to your database schema over time. They are automatic scripts that help you create, update, or delete database tables and fields, ensuring your database structure matches your code. Migrations help you avoid manual database adjustments, making it easier to track and apply changes as your app evolves.
+
+
+Intially you do have some unapplied migrations that come along with your django setup but it's always a good practice to make the migrations first and then apply them for that you can follow the commands : 
+```
+python manage.py makemigrations
+
+python manage.py migrate
+```
+> the above commands will create the django tables in the database that is configured in the default database settings.
+
+![](./images/migrateTables.png)
+
 ## Maintaining database maintenances
 
 1. Create a folder name db-backups
@@ -148,13 +162,17 @@ pg_dump -F t fullstackcourse > db-backups/fullstackcourse-1.taclr
 
 In Django, a data model refers to a Python class that defines the structure and behavior of a database table. Data models in Django are used to define the schema of the database, including the fields and relationships that the table will have. These models act as a bridge between the database and the Python code, allowing you to interact with the database using high-level Python objects.
 
+## Serializers
 
-## Serializers 
 Serializers allow you to convert complex data types (such as Django model instances) into native Python data types that can be easily rendered into JSON, XML, or other content types. They also provide the ability to deserialize the data received from clients into complex types, after first validating the incoming data.
 
-They will with data models to output data to **views** which further help us in displaying data to our final end users using api calls. 
+They will with data models to output data to **views** which further help us in displaying data to our final end users using api calls.
+
+# Django Flow 
+![](./images/flow.png)
 
 ## Changing pyenv environment to .venv environment (making vs code handle our virtual environment)
+
 pyenv is great but not optimal enough to manage our python versions so we will use vs code inbuild functions for creating virtual environments using .venv .
 
 ```
@@ -171,3 +189,11 @@ pyenv is great but not optimal enough to manage our python versions so we will u
 
 6. now if you have missed the first step then you have to reinstall all the dependencies.
 ```
+
+## restarting your virtual environment
+```
+cd project 
+
+source .venv/bin/activate
+```
+> to stop your virtual environment simply write **deactivate**

@@ -142,21 +142,9 @@ sudo vim /etc/postgresql/14/main/postgresql.conf
 sudo vim /etc/postgresql/14/main/pg_hba.conf
 ```
 
-
-## MIGRATIONS 
-Migrations in Django are a way to manage changes to your database schema over time. They are automatic scripts that help you create, update, or delete database tables and fields, ensuring your database structure matches your code. Migrations help you avoid manual database adjustments, making it easier to track and apply changes as your app evolves.
-
-
-Intially you do have some unapplied migrations that come along with your django setup but it's always a good practice to make the migrations first and then apply them for that you can follow the commands : 
-```
-python manage.py makemigrations
-
-python manage.py migrate
-```
-> the above commands will create the django tables in the database that is configured in the default database settings.
-
-![](./images/migrateTables.png)
-
+# last superuser 
+name : devmohit
+password : Mohit123*
 
 
 continue from 25.00 ....
