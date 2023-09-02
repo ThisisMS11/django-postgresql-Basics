@@ -168,6 +168,11 @@ Serializers allow you to convert complex data types (such as Django model instan
 
 They will with data models to output data to **views** which further help us in displaying data to our final end users using api calls.
 
+## Managers
+In Django, a manager is an essential part of the Object-Relational Mapping (ORM) system that allows you to interact with the database using Python code instead of writing raw SQL queries. Managers provide an interface for querying, creating, updating, and deleting records in the database through the associated model.
+
+
+
 # Django Flow 
 ![](./images/flow.png)
 
@@ -197,3 +202,20 @@ cd project
 source .venv/bin/activate
 ```
 > to stop your virtual environment simply write **deactivate**
+
+## Nuking your Database
+Sometimes, during development or complex changes to your models, migrations can become inconsistent or broken. This can happen when migrations reference tables or fields that no longer exist or have been renamed. Attempting to fix these issues manually can be time-consuming and error-prone, so starting fresh can be a quicker solution.
+
+1. Delete your existing database .
+```
+DROP DATABASE db_name (from another database)
+```
+2. Delete your migrations folders of all of your applications. 
+3. Recrete the database (with same name) and migrations/__init__.py thing.
+
+4. python manage.py makemigrations
+
+5. python manage.py migrate
+
+> this will delete all of your database content as well informations about your users and superusers so you have to recrate them as well. 
+
