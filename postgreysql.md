@@ -5,8 +5,9 @@ sudo apt update
 sudo apt install postgresql postgresql-contrib
 ```
 
+> to check postgreqsql version  **psql --version**
 
-postgresql uses a proces 
+postgresql uses a process
 **ident authentication** on macOS and ubuntu . 
 when you attempt to login to postgresql console then postgresql looks for a user with name equal to your linux username , if found then looks for a database with that same name to connect.
 
@@ -34,7 +35,7 @@ sudo adduser fullstackcourse (fill the further details asked)
 sudo -i -u fullstackcourse
 ```
 
-* User fullstackcourse user in postgresql
+* User fullstackcourse user in postgresql .By default postgresql will search for a database with a name similar to that of the user and if found will connect to it. 
 ```
 psql -U fullstackcourse
 ```
